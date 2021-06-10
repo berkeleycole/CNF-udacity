@@ -1,6 +1,14 @@
 from flask import Flask
 app = Flask(__name__)
 
+@app.route("/status")
+def status():
+    return {"status": "Ok - healthy"}
+
+@app.route("/metrics")
+def metrics():
+    return {"data": {"UserCount": 140, "UserCountActive": 23 }}
+
 @app.route("/")
 def hello():
     return "Hello World!"
